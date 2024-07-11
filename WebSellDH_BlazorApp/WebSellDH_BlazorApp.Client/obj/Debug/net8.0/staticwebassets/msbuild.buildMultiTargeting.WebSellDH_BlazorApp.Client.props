@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\WebSellDH_BlazorApp.Client.props" />
+</Project>

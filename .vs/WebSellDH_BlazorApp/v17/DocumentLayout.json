@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|d:\\project 2017\\dh softwares sell\\webselldh_blazorapp\\webselldh_blazorapp\\webselldh_blazorapp\\components\\pages\\admin\\users.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|solutionrelative:webselldh_blazorapp\\webselldh_blazorapp\\components\\pages\\admin\\users.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|d:\\project 2017\\dh softwares sell\\webselldh_blazorapp\\webselldh_blazorapp\\webselldh_blazorapp\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|solutionrelative:webselldh_blazorapp\\webselldh_blazorapp\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|d:\\project 2017\\dh softwares sell\\webselldh_blazorapp\\webselldh_blazorapp\\webselldh_blazorapp\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|solutionrelative:webselldh_blazorapp\\webselldh_blazorapp\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|d:\\project 2017\\dh softwares sell\\webselldh_blazorapp\\webselldh_blazorapp\\webselldh_blazorapp\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|solutionrelative:webselldh_blazorapp\\webselldh_blazorapp\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-11T09:22:07.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Users.razor",
+              "DocumentMoniker": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Admin\\Users.razor",
+              "RelativeDocumentMoniker": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Admin\\Users.razor",
+              "ToolTip": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Admin\\Users.razor",
+              "RelativeToolTip": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Admin\\Users.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-11T09:20:48.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\_Imports.razor",
+              "ToolTip": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\_Imports.razor",
+              "RelativeToolTip": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\_Imports.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-11T09:16:02.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Weather.razor",
+              "DocumentMoniker": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Weather.razor",
+              "RelativeDocumentMoniker": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Weather.razor",
+              "ToolTip": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Weather.razor",
+              "RelativeToolTip": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Weather.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-11T09:13:41.959Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

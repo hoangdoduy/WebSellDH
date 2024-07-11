@@ -1,0 +1,15 @@
+﻿@page "/users"
+@inject DatabaseDbContext datacontext
+
+<h3>Users</h3>
+
+
+
+@code {
+    private List<UserAccount>? Accounts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Accounts = await datacontext.UserAccounts.ToListAsync();
+    }
+}
