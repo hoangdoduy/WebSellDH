@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebSellDH_BlazorApp.Client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b0636af9ed85057d00122b431d4d794425a7b1d")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebSellDH_BlazorApp.Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebSellDH_BlazorApp.Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

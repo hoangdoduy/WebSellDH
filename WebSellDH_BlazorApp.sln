@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSellDH_BlazorApp", "WebSellDH_BlazorApp\WebSellDH_BlazorApp\WebSellDH_BlazorApp.csproj", "{D9A31872-8266-4C9F-A0FB-84F1676618BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSellDH_BlazorApp", "WebSellDH_BlazorApp\WebSellDH_BlazorApp\WebSellDH_BlazorApp.csproj", "{D9A31872-8266-4C9F-A0FB-84F1676618BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSellDH_BlazorApp.Client", "WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\WebSellDH_BlazorApp.Client.csproj", "{57024E70-F0C6-43C5-B1C6-55A458086A49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSellDH_BlazorApp.Client", "WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\WebSellDH_BlazorApp.Client.csproj", "{57024E70-F0C6-43C5-B1C6-55A458086A49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

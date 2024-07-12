@@ -1,15 +1,229 @@
 ﻿@page "/users"
+@using WebSellDH_BlazorApp.Client.Pages
+@attribute [StreamRendering]
 @inject DatabaseDbContext datacontext
+@inject NavigationManager nag
 
-<h3>Users</h3>
+@if (Accounts == null)
+{
+    <Loading />
+}
+else
+{
+    <button type="button" @onclick="@(() => Modal.Show<Counter>("View Counter"))" class="btn bg-blue btn-circle waves-effect waves-circle waves-float">
+        <i class="material-icons">mode_edit</i>
+    </button>
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="body">
+                    <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#defaultModal">Add User</button>
+                    <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="defaultModalLabel">ADD USER</h4>
+                                </div>
+                                <EditForm Model="@createAccount" FormName="createAcc" OnSubmit="@CreateAccountAsync">
+                                    <DataAnnotationsValidator />
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputText type="text" class="form-control" placeholder="UserName" @bind-Value="createAccount!.UserName" />
+                                            </div>
+                                        </div>
 
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputText type="password" class="form-control" placeholder="Password" @bind-Value="createAccount.Password" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputText type="email" class="form-control" placeholder="Email" @bind-Value="createAccount.Email" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputText type="text" class="form-control" placeholder="Phone" @bind-Value="createAccount.Phone" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary waves-effect">SAVE CHANGES</button>
+                                        <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
+                                    </div>
+                                </EditForm>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        USERS TABLE
+                    </h2>
+                </div>
+                <div class="body">
+                    <div class="table-responsive">
+                        <form>
+                            <div class="row clearfix">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control">
+                                            <label class="form-label">Search</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <button type="button" class="btn btn-primary btn-lg waves-effect">Search</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>UserName</th>
+                                    <th>Balance</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Role</th>
+                                    <th>Display</th>
+                                    <th>Order Count</th>
+                                    <th>Create Date</th>
+                                    <th>Update Date</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var acc in Accounts)
+                                    {
+                                        <tr>
+                                            <td>@acc.UserName</td>
+                                            <td>@acc.Balance</td>
+                                            <td>@acc.Email</td>
+                                            <td>@acc.Phone</td>
+                                            <td>
+                                                @{
+                                                    if (acc.Role == 0)
+                                                    {
+                                                        <span class="label bg-orange">User</span>
+                                                    }
+                                                    else if (acc.Role == 1)
+                                                    {
+                                                        <span class="label bg-blue">CTV</span>
+                                                    }
+                                                    else if (acc.Role == 0)
+                                                    {
+                                                        <span class="label bg-green">ADMIN</span>
+                                                    }
+                                                }
+                                            </td>
+                                            <td>
+                                                @{
+                                                    if (acc.Display)
+                                                    {
+                                                        <span class="label bg-red">Block</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="label bg-green">Active</span>
+                                                    }
+                                                }
+                                            </td>
+                                            <td>@acc.Orders?.Count</td>
+                                            <td>@acc.CreateDate</td>
+                                            <td>@acc.UpdateDate</td>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <button type="button" class="btn bg-blue btn-circle waves-effect waves-circle waves-float">
+                                                            <i class="material-icons">mode_edit</i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <button type="button" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
+                                                            <i class="material-icons">delete</i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <ul class="pagination">
+                                    <li class="paginate_button previous">
+                                        <a href="#" tabindex="0">Previous</a>
+                                    </li>
+                                    <li class="paginate_button active"><a href="#" tabindex="0">1</a></li>
+                                    <li class="paginate_button "><a href="#" tabindex="0">2</a></li>
+                                    <li class="paginate_button "><a href="#" tabindex="0">3</a></li>
+                                    <li class="paginate_button "><a href="#" tabindex="0">4</a></li>
+                                    <li class="paginate_button "><a href="#" tabindex="0">5</a></li>
+                                    <li class="paginate_button "><a href="#" atabindex="0">6</a></li>
+                                    <li class="paginate_button next">
+                                        <a href="#" tabindex="0">Next</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
 
 
 @code {
+
+    [CascadingParameter] IModalService Modal { get; set; } = default!;
+
     private List<UserAccount>? Accounts;
+
+    [SupplyParameterFromForm(FormName = "createAcc")]
+    private CreateAccount? createAccount { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
+        await Task.Delay(500);
         Accounts = await datacontext.UserAccounts.ToListAsync();
+        createAccount ??= new CreateAccount();
+    }
+
+    private async Task CreateAccountAsync()
+    {
+        await datacontext.UserAccounts.AddAsync(new UserAccount
+            {
+                UserName = createAccount!.UserName,
+                Password = createAccount.Password,
+                Email = createAccount.Email,
+                Phone = createAccount.Phone
+            });
+
+        await datacontext.SaveChangesAsync();
+
+        nag.NavigateTo("/users");
+    }
+
+    private void ShowEditModal(UserAccount userAccount)
+    {
+        var para = new ModalParameters();
+        para.Add("AccountEdit", userAccount);
+
+        Modal.Show<EditUserModal>(para);
     }
 }

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WebSellDH_BlazorApp.Client\WebSellDH_BlazorApp.Client.csproj" />
+    <PackageReference Include="Blazored.Modal" Version="7.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
@@ -22,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Database\Models\DTO\" />
     <Folder Include="Database\Models\Logic\" />
     <Folder Include="Database\Models\Sevices\Interfaces\" />
   </ItemGroup>
