@@ -46,27 +46,6 @@
           }
         }
       },
-      "Blazored.Modal/7.3.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components": "8.0.2",
-          "Microsoft.AspNetCore.Components.Web": "8.0.2",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
-          "Microsoft.JSInterop.WebAssembly": "8.0.2"
-        },
-        "compile": {
-          "lib/net8.0/Blazored.Modal.dll": {}
-        },
-        "runtime": {
-          "lib/net8.0/Blazored.Modal.dll": {}
-        },
-        "build": {
-          "buildTransitive/Blazored.Modal.props": {}
-        },
-        "buildMultiTargeting": {
-          "buildMultiTargeting/Blazored.Modal.props": {}
-        }
-      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -1883,26 +1862,6 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
-      ]
-    },
-    "Blazored.Modal/7.3.1": {
-      "sha512": "CWUyENSAZmNr0efiS3V5oMBkhRLkqqo1qOaY5pIqymQIR0fgGY6CDB4+57HAJP0pdks95yALrBZ6twggMaIeCg==",
-      "type": "package",
-      "path": "blazored.modal/7.3.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "blazored.modal.7.3.1.nupkg.sha512",
-        "blazored.modal.nuspec",
-        "build/Blazored.Modal.props",
-        "build/Microsoft.AspNetCore.StaticWebAssets.props",
-        "buildMultiTargeting/Blazored.Modal.props",
-        "buildTransitive/Blazored.Modal.props",
-        "icon.png",
-        "lib/net8.0/Blazored.Modal.dll",
-        "staticwebassets/Blazored.Modal.bundle.scp.css",
-        "staticwebassets/BlazoredModal.razor.js"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -4861,7 +4820,6 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Blazored.Modal >= 7.3.1",
       "Microsoft.AspNetCore.Components.WebAssembly.Server >= 8.0.7",
       "Microsoft.EntityFrameworkCore >= 8.0.7",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.7",
@@ -4871,23 +4829,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HoangPC\\.nuget\\packages\\": {},
+    "C:\\Users\\boton\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj",
+      "projectUniqueName": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj",
       "projectName": "WebSellDH_BlazorApp",
-      "projectPath": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj",
-      "packagesPath": "C:\\Users\\HoangPC\\.nuget\\packages\\",
-      "outputPath": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\obj\\",
+      "projectPath": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj",
+      "packagesPath": "C:\\Users\\boton\\.nuget\\packages\\",
+      "outputPath": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\HoangPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\boton\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4903,8 +4861,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\WebSellDH_BlazorApp.Client.csproj": {
-              "projectPath": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\WebSellDH_BlazorApp.Client.csproj"
+            "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\WebSellDH_BlazorApp.Client.csproj": {
+              "projectPath": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\WebSellDH_BlazorApp.Client.csproj"
             }
           }
         }
@@ -4924,10 +4882,6 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
-          "Blazored.Modal": {
-            "target": "Package",
-            "version": "[7.3.1, )"
-          },
           "Microsoft.AspNetCore.Components.WebAssembly.Server": {
             "target": "Package",
             "version": "[8.0.7, )"
@@ -4972,7 +4926,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

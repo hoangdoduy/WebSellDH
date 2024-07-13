@@ -325,3 +325,4 @@ E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\obj\Debug\net8
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\obj\Debug\net8.0\WebSellDH_BlazorApp.pdb
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\obj\Debug\net8.0\WebSellDH_BlazorApp.genruntimeconfig.cache
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\obj\Debug\net8.0\ref\WebSellDH_BlazorApp.dll
+D:\Project 2017\DH Softwares Sell\WebSellDH_BlazorApp\WebSellDH_BlazorApp\WebSellDH_BlazorApp\obj\Debug\net8.0\WebSellDH_BlazorApp.sourcelink.json

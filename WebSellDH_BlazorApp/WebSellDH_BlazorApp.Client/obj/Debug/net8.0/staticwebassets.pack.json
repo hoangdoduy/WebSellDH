@@ -1,19 +1,19 @@
 {
   "Files": [
     {
-      "Id": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "Id": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
     },
     {
-      "Id": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\obj\\Debug\\net8.0\\compressed\\eudjagi1lz.gz",
+      "Id": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\obj\\Debug\\net8.0\\compressed\\ocdffmy2bx.gz",
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
     },
     {
-      "Id": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\wwwroot\\appsettings.Development.json",
+      "Id": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\wwwroot\\appsettings.Development.json",
       "PackagePath": "staticwebassets\\appsettings.Development.json"
     },
     {
-      "Id": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\wwwroot\\appsettings.json",
+      "Id": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\wwwroot\\appsettings.json",
       "PackagePath": "staticwebassets\\appsettings.json"
     },
     {

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 using WebSellDH_BlazorApp.Database.DataModel;
 
 namespace WebSellDH_BlazorApp.Database.Context
@@ -94,6 +95,15 @@ namespace WebSellDH_BlazorApp.Database.Context
             return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
+        private DateTime GetDateTimeVietNam()
+        {
+            DateTime utcTime = DateTime.UtcNow;
+            TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+            DateTime vietnamTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, vietnamTimeZone);
+
+            return vietnamTime;
+        }
+
         private void AddTimestamps()
         {
             var entries = ChangeTracker
@@ -104,11 +114,11 @@ namespace WebSellDH_BlazorApp.Database.Context
 
             foreach (var entityEntry in entries)
             {
-                ((BaseDateEntity)entityEntry.Entity).UpdateDate = DateTime.UtcNow;
+                ((BaseDateEntity)entityEntry.Entity).UpdateDate = GetDateTimeVietNam();
 
                 if (entityEntry.State == EntityState.Added)
                 {
-                    ((BaseDateEntity)entityEntry.Entity).CreateDate = DateTime.UtcNow;
+                    ((BaseDateEntity)entityEntry.Entity).CreateDate = GetDateTimeVietNam();
                 }
             }
         }

@@ -9,55 +9,59 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebSellDH_BlazorApp
 build_property.RootNamespace = WebSellDH_BlazorApp
-build_property.ProjectDir = E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\
+build_property.ProjectDir = D:\Project 2017\DH Softwares Sell\WebSellDH_BlazorApp\WebSellDH_BlazorApp\WebSellDH_BlazorApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp
+build_property.MSBuildProjectDirectory = D:\Project 2017\DH Softwares Sell\WebSellDH_BlazorApp\WebSellDH_BlazorApp\WebSellDH_BlazorApp
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/Project 2017/WebSellDH/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/App.razor]
+[D:/Project 2017/DH Softwares Sell/WebSellDH_BlazorApp/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Project 2017/WebSellDH/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Layout/Loading.razor]
+[D:/Project 2017/DH Softwares Sell/WebSellDH_BlazorApp/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Layout/Loading.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTG9hZGluZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Project 2017/WebSellDH/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Pages/Admin/Users.razor]
+[D:/Project 2017/DH Softwares Sell/WebSellDH_BlazorApp/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Pages/Admin/Users.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxVc2Vycy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Project 2017/WebSellDH/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Pages/Error.razor]
+[D:/Project 2017/DH Softwares Sell/WebSellDH_BlazorApp/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Project 2017/WebSellDH/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Pages/Home.razor]
+[D:/Project 2017/DH Softwares Sell/WebSellDH_BlazorApp/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Project 2017/WebSellDH/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Pages/Modal/EditUserModal.razor]
+[D:/Project 2017/DH Softwares Sell/WebSellDH_BlazorApp/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Pages/Modal/DialogComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2RhbFxEaWFsb2dDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project 2017/DH Softwares Sell/WebSellDH_BlazorApp/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Pages/Modal/EditUserModal.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2RhbFxFZGl0VXNlck1vZGFsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Project 2017/WebSellDH/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Pages/Weather.razor]
+[D:/Project 2017/DH Softwares Sell/WebSellDH_BlazorApp/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Project 2017/WebSellDH/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Routes.razor]
+[D:/Project 2017/DH Softwares Sell/WebSellDH_BlazorApp/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Project 2017/WebSellDH/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/_Imports.razor]
+[D:/Project 2017/DH Softwares Sell/WebSellDH_BlazorApp/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Project 2017/WebSellDH/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Layout/MainLayout.razor]
+[D:/Project 2017/DH Softwares Sell/WebSellDH_BlazorApp/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-xjj2ly3rrg
 
-[E:/Project 2017/WebSellDH/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Layout/NavMenu.razor]
+[D:/Project 2017/DH Softwares Sell/WebSellDH_BlazorApp/WebSellDH_BlazorApp/WebSellDH_BlazorApp/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-rf95mizz80

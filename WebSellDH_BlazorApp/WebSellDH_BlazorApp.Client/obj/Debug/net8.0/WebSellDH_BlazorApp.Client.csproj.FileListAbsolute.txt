@@ -2055,3 +2055,4 @@ E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Deb
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\refint\WebSellDH_BlazorApp.Client.dll
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\WebSellDH_BlazorApp.Client.pdb
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\ref\WebSellDH_BlazorApp.Client.dll
+D:\Project 2017\DH Softwares Sell\WebSellDH_BlazorApp\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\WebSellDH_BlazorApp.Client.sourcelink.json

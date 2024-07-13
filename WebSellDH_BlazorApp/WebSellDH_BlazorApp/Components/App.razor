@@ -7,12 +7,12 @@
     <base href="/" />
     @* <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="app.css" /> *@
-    <link rel="stylesheet" href="WebSellDH_BlazorApp.styles.css" />
+    @* <link rel="stylesheet" href="WebSellDH_BlazorApp.styles.css" /> *@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
-    <link href="bsd/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bsd/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
     <link href="bsd/plugins/node-waves/waves.css" rel="stylesheet" />
@@ -20,27 +20,22 @@
     <!-- Animation Css -->
     <link href="bsd/plugins/animate-css/animate.css" rel="stylesheet" />
 
-    <!-- Sweet Alert Css -->
-    <link href="bsd/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
 
-    <!-- Morris Chart Css-->
-    <link href="bsd/plugins/morrisjs/morris.css" rel="stylesheet" />
-
-    <link href="bsd/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="bsd/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Css -->
     <link href="bsd/css/style.css" rel="stylesheet">
-    
+
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="bsd/css/themes/all-themes.css" rel="stylesheet" />
 
     <link rel="icon" type="image/png" href="favicon.png" />
+
     <HeadOutlet />
 </head>
 
 <body class="theme-red">
     <Routes />
-    
 
     <script src="bsd/plugins/jquery/jquery.min.js"></script>
 
@@ -56,28 +51,8 @@
     <!-- Waves Effect Plugin Js -->
     <script src="bsd/plugins/node-waves/waves.js"></script>
 
-    <!-- Jquery CountTo Plugin Js -->
-    <script src="bsd/plugins/jquery-countto/jquery.countTo.js"></script>
-
-    <!-- Morris Plugin Js -->
-    <script src="bsd/plugins/raphael/raphael.min.js"></script>
-    <script src="bsd/plugins/morrisjs/morris.js"></script>
-
-    <!-- ChartJs -->
-    @* <script src="bsd/plugins/chartjs/Chart.bundle.js"></script> *@
-
-    <!-- Flot Charts Plugin Js -->
-    @* <script src="bsd/plugins/flot-charts/jquery.flot.js"></script>
-    <script src="bsd/plugins/flot-charts/jquery.flot.resize.js"></script>
-    <script src="bsd/plugins/flot-charts/jquery.flot.pie.js"></script>
-    <script src="bsd/plugins/flot-charts/jquery.flot.categories.js"></script>
-    <script src="bsd/plugins/flot-charts/jquery.flot.time.js"></script>*@
-
-    <!-- Sparkline Chart Plugin Js -->
-    <script src="bsd/plugins/jquery-sparkline/jquery.sparkline.js"></script>
-
     <!-- Jquery DataTable Plugin Js -->
-    <script src="bsd/plugins/jquery-datatable/jquery.dataTables.js"></script>
+    @* <script src="bsd/plugins/jquery-datatable/jquery.dataTables.js"></script>
     <script src="bsd/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
     <script src="bsd/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
     <script src="bsd/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
@@ -85,17 +60,28 @@
     <script src="bsd/plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
     <script src="bsd/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
     <script src="bsd/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-    <script src="bsd/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    <script src="bsd/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script> *@
 
 
     <!-- Custom Js -->
     <script src="bsd/js/admin.js"></script>
-    @* <script src="bsd/js/pages/index.js"></script> *@
-
+    @* <script src="bsd/js/pages/tables/jquery-datatable.js"></script> *@
     <!-- Demo Js -->
-    <script src="bsd/js/demo.js"></script>
+    @* <script src="bsd/js/demo.js"></script> *@
 
-    <script src="_framework/blazor.web.js"></script>
+    <script src="bsd/js/dialog.js"></script>
+
+    <script src="_framework/blazor.web.js" autostart="false"></script>
+
+    <script src="_framework/blazor.server.js" autostart="false"></script>
+
+    <script>
+        Blazor.start({
+            configureSignalR: function (builder) {
+                builder.configureLogging("none");
+            }
+        });
+    </script>
 </body>
 
 </html>

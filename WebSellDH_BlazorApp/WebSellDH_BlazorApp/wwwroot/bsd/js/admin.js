@@ -244,12 +244,14 @@ $.AdminBSB.navbar = {
 
         //Open left sidebar panel
         $('.bars').on('click', function () {
+            console.log("open");
             $body.toggleClass('overlay-open');
             if ($body.hasClass('overlay-open')) { $overlay.fadeIn(); } else { $overlay.fadeOut(); }
         });
 
         //Close collapse bar on click event
         $('.nav [data-close="true"]').on('click', function () {
+            console.log("close");
             var isVisible = $('.navbar-toggle').is(':visible');
             var $navbarCollapse = $('.navbar-collapse');
 

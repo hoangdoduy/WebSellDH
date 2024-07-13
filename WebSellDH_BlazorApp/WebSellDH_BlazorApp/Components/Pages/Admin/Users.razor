@@ -1,8 +1,9 @@
 ﻿@page "/users"
-@using WebSellDH_BlazorApp.Client.Pages
+@rendermode InteractiveServer
 @attribute [StreamRendering]
 @inject DatabaseDbContext datacontext
 @inject NavigationManager nag
+@inject IJSRuntime js
 
 @if (Accounts == null)
 {
@@ -10,9 +11,6 @@
 }
 else
 {
-    <button type="button" @onclick="@(() => Modal.Show<Counter>("View Counter"))" class="btn bg-blue btn-circle waves-effect waves-circle waves-float">
-        <i class="material-icons">mode_edit</i>
-    </button>
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
@@ -24,7 +22,7 @@ else
                                 <div class="modal-header">
                                     <h4 class="modal-title" id="defaultModalLabel">ADD USER</h4>
                                 </div>
-                                <EditForm Model="@createAccount" FormName="createAcc" OnSubmit="@CreateAccountAsync">
+                                <EditForm Model="@createAccount" OnValidSubmit="@CreateAccountAsync">
                                     <DataAnnotationsValidator />
                                     <div class="modal-body">
                                         <div class="form-group">
@@ -48,6 +46,18 @@ else
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <InputText type="text" class="form-control" placeholder="Phone" @bind-Value="createAccount.Phone" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputSelect @bind-Value="createAccount.Role" class="form-control show-tick">
+                                                    <option value>-- Please select --</option>
+                                                    <option value="0">User</option>
+                                                    <option value="1">CTV</option>
+                                                    <option value="2">Admin</option>
+                                                </InputSelect>
+
                                             </div>
                                         </div>
 
@@ -77,13 +87,12 @@ else
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <input type="text" class="form-control">
-                                            <label class="form-label">Search</label>
+                                            <InputText type="text" class="form-control" placeholder="Search" @bind-Value="TextSearch" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <button type="button" class="btn btn-primary btn-lg waves-effect">Search</button>
+                                    <button type="button" @onclick="(() => OnSearch(0))" class="btn btn-primary btn-lg waves-effect">Search</button>
                                 </div>
                             </div>
                         </form>
@@ -109,7 +118,10 @@ else
                                     {
                                         <tr>
                                             <td>@acc.UserName</td>
-                                            <td>@acc.Balance</td>
+                                            <td>@{
+                                                    string html = String.Format(new CultureInfo("vi-VN"), "{0:C0}", acc.Balance);
+                                                    @html;
+                                                }</td>
                                             <td>@acc.Email</td>
                                             <td>@acc.Phone</td>
                                             <td>
@@ -122,7 +134,7 @@ else
                                                     {
                                                         <span class="label bg-blue">CTV</span>
                                                     }
-                                                    else if (acc.Role == 0)
+                                                    else if (acc.Role == 2)
                                                     {
                                                         <span class="label bg-green">ADMIN</span>
                                                     }
@@ -146,12 +158,17 @@ else
                                             <td>
                                                 <div class="row">
                                                     <div class="col-sm-3">
-                                                        <button type="button" class="btn bg-blue btn-circle waves-effect waves-circle waves-float">
+                                                        <button type="button" @onclick="(() => EditBalanceModal(acc))" class="btn bg-amber btn-circle waves-effect waves-circle waves-float">
+                                                            <i class="material-icons">attach_money</i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <button type="button" @onclick="(() => EditAccoutModal(acc))" class="btn bg-blue btn-circle waves-effect waves-circle waves-float">
                                                             <i class="material-icons">mode_edit</i>
                                                         </button>
                                                     </div>
                                                     <div class="col-sm-3">
-                                                        <button type="button" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
+                                                        <button type="button" @onclick="(() => DeleteAccoutModal(acc))" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
                                                             <i class="material-icons">delete</i>
                                                         </button>
                                                     </div>
@@ -164,20 +181,19 @@ else
                         </table>
                         <div class="row">
                             <div class="col-sm-7">
-                                <ul class="pagination">
-                                    <li class="paginate_button previous">
-                                        <a href="#" tabindex="0">Previous</a>
-                                    </li>
-                                    <li class="paginate_button active"><a href="#" tabindex="0">1</a></li>
-                                    <li class="paginate_button "><a href="#" tabindex="0">2</a></li>
-                                    <li class="paginate_button "><a href="#" tabindex="0">3</a></li>
-                                    <li class="paginate_button "><a href="#" tabindex="0">4</a></li>
-                                    <li class="paginate_button "><a href="#" tabindex="0">5</a></li>
-                                    <li class="paginate_button "><a href="#" atabindex="0">6</a></li>
-                                    <li class="paginate_button next">
-                                        <a href="#" tabindex="0">Next</a>
-                                    </li>
-                                </ul>
+                                <nav>
+                                    <ul class="pagination">
+                                        @{
+                                            for (int i = 1; i <= PageCount; i++)
+                                            {
+                                                int captureIndex = i;
+                                                string subClass = CurrentPageNumber == captureIndex ? "active" : string.Empty;
+                                                string subBtnClass = CurrentPageNumber == captureIndex ? "btn btn-primary" : "btn btn-default";
+                                                <li class="@subClass"><button class="@subBtnClass waves-effect" @onclick="(async () => await OnSearch(captureIndex))">@captureIndex</button></li>
+                                            }
+                                        }
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>
@@ -186,22 +202,58 @@ else
         </div>
     </div>
 }
+<DialogComponent @rendermode="InteractiveServer" @ref="dialogComponent" AccountEdit="AccountEdit" HandleEditUserAccountEvent="HandleEditUserAccountEvent" HandleConfirmDeleteEvent="HandleConfirmDeleteEvent" HandleEditBalanceEvent="HandleEditBalanceEvent">
 
+</DialogComponent>
 
 @code {
+    DialogComponent? dialogComponent;
 
-    [CascadingParameter] IModalService Modal { get; set; } = default!;
+    UserAccount? AccountEdit = new();
+
+    string TextSearch { get; set; } = string.Empty;
+
+    int PageCount { get; set; }
+    int CurrentPageNumber { get; set; }
 
     private List<UserAccount>? Accounts;
 
-    [SupplyParameterFromForm(FormName = "createAcc")]
     private CreateAccount? createAccount { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(500);
-        Accounts = await datacontext.UserAccounts.ToListAsync();
+        //Accounts = await datacontext.UserAccounts.ToListAsync();
+        await OnSearch(0);
         createAccount ??= new CreateAccount();
+    }
+
+    private async Task OnSearch(int page)
+    {
+        var data = await datacontext.UserAccounts.ToListAsync();
+
+        if (!string.IsNullOrEmpty(TextSearch))
+        {
+            data = data.Where(s => (s.UserName is not null ? s.UserName.ToLower().Contains(TextSearch.ToLower()) : false) || (s.Email is not null ? s.Email!.ToLower().Contains(TextSearch.ToLower()) : false) || (s.Phone is not null ? s.Phone!.ToLower().Contains(TextSearch.ToLower()) : false)).ToList();
+
+            Accounts = data;
+        }
+
+        if (page <= 0)
+        {
+            page = 1;
+        }
+
+        int maxRows = 10;
+        int? count = (page - 1) * maxRows;
+        var dataResult = data.OrderBy(x => x.UserId).Skip((int)count!).Take(maxRows).ToList();
+        double pageCount = (double)((decimal)data.Count() / Convert.ToDecimal(maxRows));
+
+        PageCount = (int)Math.Ceiling(pageCount);
+
+        Accounts = dataResult;
+
+        CurrentPageNumber = page;
     }
 
     private async Task CreateAccountAsync()
@@ -211,19 +263,79 @@ else
                 UserName = createAccount!.UserName,
                 Password = createAccount.Password,
                 Email = createAccount.Email,
-                Phone = createAccount.Phone
+                Phone = createAccount.Phone,
+                Role = createAccount.Role
             });
 
         await datacontext.SaveChangesAsync();
 
-        nag.NavigateTo("/users");
+        nag.NavigateTo("/users", true);
+
     }
 
-    private void ShowEditModal(UserAccount userAccount)
+    private async Task ShowEditModal()
     {
-        var para = new ModalParameters();
-        para.Add("AccountEdit", userAccount);
-
-        Modal.Show<EditUserModal>(para);
+        await js.InvokeVoidAsync("myDialogFunction");
     }
+
+    private async Task HandleEditBalanceEvent((UserAccount, decimal) arg)
+    {
+        
+
+        decimal b = arg.Item2;
+        UserAccount user = arg.Item1;
+
+        user.Balance = user.Balance + b;
+
+        datacontext.UserAccounts.Update(user);
+        await datacontext.SaveChangesAsync();
+
+        nag.Refresh(true);
+    }
+
+    private async Task EditBalanceModal(UserAccount userAccount)
+    {
+        AccountEdit = userAccount;
+        dialogComponent!.ShowEditBalanceDialog();
+        await js.InvokeVoidAsync("myDialogFunction");
+    }
+
+    private async Task HandleEditUserAccountEvent(UserAccount userAccount)
+    {
+        datacontext.UserAccounts.Update(userAccount);
+        await datacontext.SaveChangesAsync();
+        dialogComponent!.ClearModal();
+        dialogComponent!.LoadDefault();
+
+        AccountEdit = new();
+        nag.Refresh(true);
+    }
+
+    private async Task EditAccoutModal(UserAccount userAccount)
+    {
+        AccountEdit = userAccount;
+        await ShowEditModal();
+    }
+
+    private async Task DeleteAccoutModal(UserAccount userAccount)
+    {
+        AccountEdit = userAccount;
+        dialogComponent!.ShowConfirmDialog();
+        await js.InvokeVoidAsync("myDialogFunction");
+    }
+
+    private async Task HandleConfirmDeleteEvent()
+    {
+        if (AccountEdit is null) return;
+
+        datacontext.UserAccounts.Remove(AccountEdit);
+        await datacontext.SaveChangesAsync();
+        dialogComponent!.ClearModal();
+        dialogComponent!.LoadDefault();
+        AccountEdit = new();
+        nag.Refresh(true);
+
+    }
+
+    
 }

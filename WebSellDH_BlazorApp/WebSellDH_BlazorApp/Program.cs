@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using WebSellDH_BlazorApp.Client.Pages;
 using WebSellDH_BlazorApp.Components;
 using WebSellDH_BlazorApp.Database.Context;
-using Blazored.Modal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,8 +14,6 @@ builder.Services.AddDbContext<DatabaseDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionStrings"));
 });
-
-builder.Services.AddBlazoredModal();
 
 var app = builder.Build();
 
@@ -31,7 +28,7 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+app.UseHsts();
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();

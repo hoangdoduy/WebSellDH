@@ -12,5 +12,7 @@ namespace WebSellDH_BlazorApp.Database.Models.DTO.UserAccount
         public string? Email { get; set; }
 
         public string? Phone {  get; set; }
+
+        public int Role { get; set; } = 0;
     }
 }
