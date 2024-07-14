@@ -31,7 +31,7 @@ namespace WebSellDH_BlazorApp.Database.DataModel
         public bool Display { get; set; }
 
         [DefaultValue(0)]
-        [Column(TypeName = "decimal(18,8)")]
+        [Column(TypeName = "decimal(18,0)")]
         public decimal? Balance { get; set; }
 
         public virtual ICollection<Order>? Orders { get; set; }

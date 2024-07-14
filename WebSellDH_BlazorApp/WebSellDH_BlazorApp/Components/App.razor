@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
-    <link href="bsd/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bsd/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
     <link href="bsd/plugins/node-waves/waves.css" rel="stylesheet" />
@@ -20,8 +20,15 @@
     <!-- Animation Css -->
     <link href="bsd/plugins/animate-css/animate.css" rel="stylesheet" />
 
-
     <link href="bsd/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.min.css" rel="stylesheet">
+
+    <link href="bsd/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+
+    <link href="bsd/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet">
+
+    <link href="bsd/plugins/waitme/waitMe.css" rel="stylesheet">
+
+    @* <link href="bsd/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet"> *@
 
     <!-- Custom Css -->
     <link href="bsd/css/style.css" rel="stylesheet">
@@ -30,7 +37,48 @@
     <link href="bsd/css/themes/all-themes.css" rel="stylesheet" />
 
     <link rel="icon" type="image/png" href="favicon.png" />
+    <style>
+        .dialog {
+            width: 750px;
+            background-color: white;
+            border-radius: 10px;
+            border-color: white;
+            padding: 1rem;
+        }
 
+            .dialog .dialog-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 2rem;
+            }
+
+            .dialog .dialog-body {
+                padding: 2rem;
+            }
+
+            .dialog .dialog-footer {
+                padding: 2rem;
+            }
+
+
+        .close {
+            height: 40px;
+            width: 40px;
+            background-color: transparent;
+            transition: 0.25s ease;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+            .close:hover {
+                background-color: #DDD;
+            }
+
+    </style>
     <HeadOutlet />
 </head>
 
@@ -43,7 +91,7 @@
     <script src="bsd/plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
-    <script src="bsd/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    @* <script src="bsd/plugins/bootstrap-select/js/bootstrap-select.js"></script> *@
 
     <!-- Slimscroll Plugin Js -->
     <script src="bsd/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
@@ -52,7 +100,7 @@
     <script src="bsd/plugins/node-waves/waves.js"></script>
 
     <!-- Jquery DataTable Plugin Js -->
-    @* <script src="bsd/plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="bsd/plugins/jquery-datatable/jquery.dataTables.js"></script>
     <script src="bsd/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
     <script src="bsd/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
     <script src="bsd/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
@@ -60,16 +108,25 @@
     <script src="bsd/plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
     <script src="bsd/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
     <script src="bsd/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-    <script src="bsd/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script> *@
+    <script src="bsd/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 
+    <script src="bsd/plugins/autosize/autosize.js"></script>
+
+    <script src="bsd/plugins/momentjs/moment.js"></script>
+
+
+    <script src="bsd/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+
+    <script src="bsd/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 
     <!-- Custom Js -->
     <script src="bsd/js/admin.js"></script>
-    @* <script src="bsd/js/pages/tables/jquery-datatable.js"></script> *@
-    <!-- Demo Js -->
-    @* <script src="bsd/js/demo.js"></script> *@
+    
+    <script src="bsd/js/pages/forms/basic-form-elements.js"></script>
 
     <script src="bsd/js/dialog.js"></script>
+
+    <script src="bsd/js/demo.js"></script>
 
     <script src="_framework/blazor.web.js" autostart="false"></script>
 

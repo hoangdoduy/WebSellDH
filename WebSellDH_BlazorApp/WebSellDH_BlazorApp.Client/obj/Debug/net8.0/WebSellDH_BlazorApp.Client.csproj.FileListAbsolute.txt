@@ -1030,9 +1030,7 @@ E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Deb
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\blazor.webassembly.js
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\dotnet.js
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\dotnet.js.map
-E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\dotnet.native.8.0.5.ew1vqrwwsw.js
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\dotnet.native.wasm
-E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\dotnet.runtime.8.0.5.gongq8hbow.js
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\dotnet.runtime.js.map
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\icudt_CJK.dat
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\icudt_EFIGS.dat
@@ -1313,7 +1311,6 @@ E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Deb
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\System.Net.Http.wasm.gz
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\Microsoft.JSInterop.WebAssembly.wasm.gz
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\blazor.webassembly.js.gz
-E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\dotnet.native.8.0.5.ew1vqrwwsw.js.gz
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\System.Threading.Overlapped.wasm.gz
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\blazor.boot.json.gz
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\System.Security.Cryptography.Cng.wasm.gz
@@ -1322,7 +1319,6 @@ E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Deb
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\System.Runtime.InteropServices.wasm.gz
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\System.Resources.Reader.wasm.gz
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\System.Diagnostics.TraceSource.wasm.gz
-E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\dotnet.runtime.8.0.5.gongq8hbow.js.gz
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\System.Reflection.Emit.ILGeneration.wasm.gz
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\System.Text.Encoding.CodePages.wasm.gz
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\System.Collections.wasm.gz
@@ -2038,15 +2034,6 @@ E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Deb
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\7jauy8rffe.gz
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\59qxy4ou1i.gz
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\9g07ax5y5t.gz
-E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\uwh8dnsva1.gz
-E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\7hm6s93b13.gz
-E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\ew1vqrwwsw.gz
-E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\ibgvc3mbbn.gz
-E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\gongq8hbow.gz
-E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\wj55uthord.gz
-E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\q2rv227kvb.gz
-E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\641whrt3d5.gz
-E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\nzvv05lacr.gz
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\ocb2ygcz0q.gz
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\xxqe66e2pm.gz
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\fveyapdap7.gz
@@ -2056,3 +2043,16 @@ E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Deb
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\WebSellDH_BlazorApp.Client.pdb
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\ref\WebSellDH_BlazorApp.Client.dll
 D:\Project 2017\DH Softwares Sell\WebSellDH_BlazorApp\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\WebSellDH_BlazorApp.Client.sourcelink.json
+E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\dotnet.native.8.0.7.37dkch2d2y.js
+E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\dotnet.runtime.8.0.7.urcsr75yt5.js
+E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\dotnet.native.8.0.7.37dkch2d2y.js.gz
+E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\bin\Debug\net8.0\wwwroot\_framework\dotnet.runtime.8.0.7.urcsr75yt5.js.gz
+E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\f23nu5hkfg.gz
+E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\46wj3f8iim.gz
+E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\37dkch2d2y.gz
+E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\vzhy5cblum.gz
+E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\urcsr75yt5.gz
+E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\ka3w8hadk3.gz
+E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\fya3d8ovfm.gz
+E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\ovzsgv6a1u.gz
+E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp.Client\obj\Debug\net8.0\compressed\3rrtxwix54.gz

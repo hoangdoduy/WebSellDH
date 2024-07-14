@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "WebSellDH_BlazorApp.Client",
   "resources": {
-    "hash": "sha256-nnHyuJZU/UPRBgD49ci8f3nIxVEWOFJxNCJoXTBYsrg=",
+    "hash": "sha256-kqF/VVlNBM4mu2srsOeSJlK76Hnk2lwnrxiZcAFbdGA=",
     "jsModuleNative": {
       "dotnet.native.8.0.7.37dkch2d2y.js": "sha256-tFsxPBbhkdn6GKNBKvCRLzrfAHdyM86odYTe0MtrwMk="
     },
@@ -208,10 +208,10 @@
       "mscorlib.wasm": "sha256-fLbZiSHBNdpHoh4EgRqMaNP5NQyIK5TEj6AXFLqo8m8=",
       "netstandard.wasm": "sha256-d4xbAE8qrKq5euUoZHPO+jkYPjlCYBzUew45MKsYKic=",
       "System.Private.CoreLib.wasm": "sha256-8yi6NcX1lkNQgV4WKjnMBYIZyKh4P+OXnXVQmgxGZD4=",
-      "WebSellDH_BlazorApp.Client.wasm": "sha256-sGR6715QMMN2pDH078FG6S9FTVAuday7wx9crYom3gA="
+      "WebSellDH_BlazorApp.Client.wasm": "sha256-8zH5TC4R7NhQzXorVghL/dLBxdiglcCa9cbSZfNShwA="
     },
     "pdb": {
-      "WebSellDH_BlazorApp.Client.pdb": "sha256-3aC5Lc4JNGe/BpYIm4lfkxZeFCCGLtmTSC1+b3d6IEM="
+      "WebSellDH_BlazorApp.Client.pdb": "sha256-m8sgXAaiDo2HhEg6Ul9fpXpGQ/tRivIf9rUnAI6fprg="
     }
   },
   "cacheBootResources": true,

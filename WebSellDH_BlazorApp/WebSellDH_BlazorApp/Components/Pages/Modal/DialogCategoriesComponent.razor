@@ -1,0 +1,109 @@
+﻿<div>
+    <dialog id="my-dialog" @onclose="OnClose" class="dialog">
+        @if (ShowEdit)
+        {
+            <EditForm Model="@CategoryEdit" OnValidSubmit="@EditAsync">
+                <div class="dialog-header">
+                    <div>
+                        <h4>
+                            Edit Categories @CategoryEdit!.CategoryName
+                        </h4>
+                    </div>
+                    <div class="close">
+                        <form method="dialog">
+                            <button class="btn btn-default waves-effect">
+                                <i class="material-icons  font-bold col-black">cancel</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="dialog-body">
+
+                    <DataAnnotationsValidator />
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputText type="text" class="form-control" placeholder="Categories" @bind-Value="CategoryEdit!.CategoryName" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputTextArea type="text" class="form-control" rows="10" placeholder="Content" @bind-Value="CategoryEdit.CategoryContent" />
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-footer">
+                    <button type="submit" class="btn btn-primary waves-effect">SAVE CHANGES</button>
+                </div>
+            </EditForm>
+        }
+
+        @if (ShowDelete)
+        {
+            <div class="dialog-header">
+                <div>
+                    <h4>
+                        Delete Categories @CategoryEdit!.CategoryName
+                    </h4>
+                </div>
+            </div>
+            <div class="dialog-body">
+                Are you sure you wanna do this?
+            </div>
+            <div class="dialog-footer">
+                <form method="dialog">
+                    <button class="btn btn-danger waves-effect" @onclick="(() => ConfirmDelete(true))">Yes</button>
+                    <button class="btn btn-default waves-effect">No</button>
+                </form>
+            </div>
+        }
+    </dialog>
+</div>
+
+@code {
+    private bool ShowEdit { get; set; } = true;
+
+    private bool ShowDelete { get; set; } = false;
+
+    [Parameter]
+    public Category? CategoryEdit { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<Category> HandleEditEvent { get; set; }
+
+    [Parameter]
+    public EventCallback HandleDeleteEvent { get; set; }
+
+    void OnClose(EventArgs e)
+    {
+        LoadDefault();
+        base.OnInitialized();
+    }
+
+    public void LoadDefault()
+    {
+        CategoryEdit = new();
+        ShowEdit = true;
+        ShowDelete = false;
+    }
+
+    public void ShowDeleteModal()
+    {
+        ShowEdit = false;
+        ShowDelete = true;
+    }
+
+    async Task EditAsync()
+    {
+        await HandleEditEvent.InvokeAsync(CategoryEdit);
+    }
+
+    async Task ConfirmDelete(bool response)
+    {
+        if (response)
+        {
+            await HandleDeleteEvent.InvokeAsync();
+            ShowDeleteModal();
+        }
+    }
+}

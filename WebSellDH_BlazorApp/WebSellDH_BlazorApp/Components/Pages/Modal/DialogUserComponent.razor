@@ -1,0 +1,185 @@
+﻿<div class="maindialog">
+    <dialog id="my-dialog" @onclose="OnClose" class="dialog">
+        @if (ShowAdd)
+        {
+            <EditForm Model="@AccountEdit" OnValidSubmit="@EditAccountAsync">
+                <div class="dialog-header">
+                    <div>
+                        <h4>
+                            Edit User @AccountEdit!.UserName
+                        </h4>
+                    </div>
+                    <div class="close">
+                        <form method="dialog">
+                            <button class="btn btn-default waves-effect">
+                                <i class="material-icons  font-bold col-black">cancel</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="dialog-body">
+
+                    <DataAnnotationsValidator />
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputText type="text" class="form-control" placeholder="UserName" @bind-Value="AccountEdit!.UserName" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputText type="password" class="form-control" placeholder="Password" @bind-Value="AccountEdit.Password" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputText type="email" class="form-control" placeholder="Email" @bind-Value="AccountEdit.Email" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputText type="text" class="form-control" placeholder="Phone" @bind-Value="AccountEdit.Phone" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputSelect @bind-Value="AccountEdit.Role" class="form-control show-tick">
+                                <option value>-- Please select --</option>
+                                <option value="0">User</option>
+                                <option value="1">CTV</option>
+                                <option value="2">Admin</option>
+                            </InputSelect>
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <InputCheckbox type="checkbox" name="display" id="display" class="filled-in chk-col-pink" @bind-Value="AccountEdit.Display"></InputCheckbox>
+                        <label for="display">Display</label>
+                    </div>
+                </div>
+                <div class="dialog-footer">
+                    <button type="submit" class="btn btn-primary waves-effect">SAVE CHANGES</button>
+                </div>
+            </EditForm>
+        }
+
+        @if (ShowDelete)
+        {
+            <div class="dialog-header">
+                <div>
+                    <h4>
+                        Delete User @AccountEdit!.UserName
+                    </h4>
+                </div>
+            </div>
+            <div class="dialog-body">
+                Are you sure you wanna do this?
+            </div>
+            <div class="dialog-footer">
+                <form method="dialog">
+                    <button class="btn btn-danger waves-effect" @onclick="(() => ConfirmDelete(true))">Yes</button>
+                    <button class="btn btn-default waves-effect">No</button>
+                </form>
+            </div>
+        }
+
+        @if (ShowEditBalance)
+        {
+            <div class="dialog-header">
+                <div>
+                    <h4>
+                        Balance User @AccountEdit!.UserName
+                    </h4>
+                </div>
+            </div>
+            <div class="dialog-body">
+                <InputNumber class="form-control" @bind-Value="Balance" />
+            </div>
+            <div class="dialog-footer">
+                <form method="dialog">
+                    <button class="btn btn-primary waves-effect" @onclick="(() => EditBalanceAsync())">Save</button>
+                    <button class="btn btn-default waves-effect">No</button>
+                </form>
+            </div>
+        }
+    </dialog>
+</div>
+
+
+@code {
+    private bool ShowAdd { get; set; } = true;
+
+    private bool ShowEditBalance { get; set; } = false;
+
+    private bool ShowDelete { get; set; } = false;
+
+    private decimal Balance { get; set; }
+
+    [Parameter]
+    public UserAccount? AccountEdit { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<UserAccount> HandleEditUserAccountEvent { get; set; }
+
+    [Parameter] 
+    public EventCallback HandleConfirmDeleteEvent { get; set; }
+
+    [Parameter]
+    public EventCallback<(UserAccount, decimal)> HandleEditBalanceEvent { get; set; }
+
+    void OnClose(EventArgs e)
+    {
+        LoadDefault();
+        AccountEdit = new();
+
+        base.OnInitialized();
+    }
+
+    async Task EditBalanceAsync()
+    {
+        await HandleEditBalanceEvent.InvokeAsync((AccountEdit!, Balance));
+    }
+
+    async Task EditAccountAsync()
+    {
+        await HandleEditUserAccountEvent.InvokeAsync(AccountEdit);
+    }
+
+    public void ShowConfirmDialog()
+    {
+        ShowAdd = false;
+        ShowDelete = true;
+        ShowEditBalance = false;
+    }
+
+    public void ShowEditBalanceDialog()
+    {
+        ShowAdd = false;
+        ShowEditBalance = true;
+        ShowDelete = false;
+    }
+
+    public void LoadDefault()
+    {
+        ShowAdd = true;
+        ShowEditBalance = false;
+        ShowDelete = false;
+    }
+
+    private async void ConfirmDelete(bool response)
+    {
+        if (response)
+        {
+            await HandleConfirmDeleteEvent.InvokeAsync();
+            ShowConfirmDialog();
+        }
+
+    }
+
+    public void ClearModal()
+    {
+        AccountEdit = new();
+    }
+}

@@ -1,0 +1,305 @@
+﻿@page "/product"
+@rendermode InteractiveServer
+@attribute [StreamRendering]
+@inject DatabaseDbContext datacontext
+@inject NavigationManager nag
+@inject IJSRuntime js
+
+@if(Products is null)
+{
+    <Loading/>
+}
+else
+{
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="body">
+                    <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#defaultModal">Add Product</button>
+                    <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="defaultModalLabel">ADD PRODUCT</h4>
+                                </div>
+                                <EditForm Model="@createProduct" OnValidSubmit="@CreateAsync">
+                                    <DataAnnotationsValidator />
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputText type="text" class="form-control" placeholder="Name" @bind-Value="createProduct!.ProductName" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputText type="text" class="form-control" placeholder="Version" @bind-Value="createProduct!.ProductVersion" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputTextArea type="text" class="form-control" rows="10" placeholder="Content" @bind-Value="createProduct!.ProductContent" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <InputCheckbox type="checkbox" name="display" id="display" class="filled-in chk-col-pink" @bind-Value="createProduct.Display"></InputCheckbox>
+                                            <label for="display">Display</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputSelect @bind-Value="createProduct.CategoryId" class="form-control show-tick">
+                                                    <option value>Select Categories</option>
+                                                    @foreach (var item in GetCategories!)
+                                                    {
+                                                        <option value="@item.CategoryId">@item.CategoryName</option>
+
+                                                    }
+                                                </InputSelect>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputSelect @bind-Value="createProduct.ProductLinkId" class="form-control show-tick">
+                                                    <option value>Select Product Link</option>
+                                                    @foreach (var item in GetProductLink!)
+                                                    {
+                                                        <option value="@item.ProductLinkId">@item.ProductLinkName</option>
+                                                    }
+                                                </InputSelect>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary waves-effect">SAVE CHANGES</button>
+                                        <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
+                                    </div>
+                                </EditForm>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        PRODUCT TABLE
+                    </h2>
+                </div>
+                <div class="body">
+                    <form>
+                        <div class="row clearfix">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <InputText type="text" class="form-control" placeholder="Search" @bind-Value="TextSearch" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                <button type="button" @onclick="(() => OnSearch(0))" class="btn btn-primary btn-lg waves-effect">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Version</th>
+                                    <th>Content</th>
+                                    <th>Display</th>
+                                    <th>Categories</th>
+                                    <th>Product Link</th>
+                                    <th>Prices</th>
+                                    <th>Create Date</th>
+                                    <th>Update Date</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var acc in Products)
+                                    {
+                                        <tr>
+                                            <td>@acc.ProductName</td>
+                                            <td>@acc.ProductVersion</td>
+                                            <td>@acc.ProductContent</td>
+                                            <td>
+                                                @{
+                                                    if (acc.Display)
+                                                    {
+                                                        <span class="label bg-red">Block</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="label bg-green">Active</span>
+                                                    }
+                                                }
+                                            </td>
+                                            <td>@acc.Category!.CategoryName</td>
+                                            <td>@acc.ProductLink!.ProductLinkName</td>
+                                            <td>
+                                            @{
+                                                foreach (var item in acc.Prices!)
+                                                    {
+                                                        string html = String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.Balance);
+                                                        <span class="label bg-teal m-r-10">@item.PriceDay Days - @html</span>
+                                                    }
+                                            }</td>
+                                            <td>@acc.CreateDate</td>
+                                            <td>@acc.UpdateDate</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li>
+                                                            <a type="button" @onclick="(() => EditModal(acc))" class="waves-effect">
+                                                                <i class="material-icons">mode_edit</i> Edit
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a type="button" @onclick="(() => DeleteModal(acc))" class="waves-effect">
+                                                                <i class="material-icons">delete</i> Delete
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <nav>
+                                <ul class="pagination">
+                                    @{
+                                        for (int i = 1; i <= PageCount; i++)
+                                        {
+                                            int captureIndex = i;
+                                            string subClass = CurrentPageNumber == captureIndex ? "active" : string.Empty;
+                                            string subBtnClass = CurrentPageNumber == captureIndex ? "btn btn-primary" : "btn btn-default";
+                                            <li class="@subClass"><button class="@subBtnClass waves-effect" @onclick="(async () => await OnSearch(captureIndex))">@captureIndex</button></li>
+                                        }
+                                    }
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<DialogProductComponent @rendermode="InteractiveServer" @ref="dialogProductComponent" ProductEdit="ProductEdit" HandleEditEvent="HandleEditEvent" HandleDeleteEvent="HandleDeleteEvent"></DialogProductComponent>
+
+@code {
+    DialogProductComponent? dialogProductComponent;
+
+    Product? ProductEdit = new();
+
+    string TextSearch { get; set; } = string.Empty;
+
+    int PageCount { get; set; }
+    int CurrentPageNumber { get; set; }
+
+    private List<Category>? GetCategories = new();
+
+    private List<ProductLink>? GetProductLink = new();
+
+    private List<Product>? Products;
+
+    private Product? createProduct { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(500);
+        //Accounts = await datacontext.UserAccounts.ToListAsync();
+        GetCategories = await datacontext.Categories.ToListAsync();
+        GetProductLink = await datacontext.ProductLinks.ToListAsync();
+        await OnSearch(0);
+        createProduct ??= new Product();
+    }
+
+    private async Task OnSearch(int page)
+    {
+        var data = await datacontext.Products.Include(x => x.Prices).ToListAsync();
+
+        if (!string.IsNullOrEmpty(TextSearch))
+        {
+            data = data.Where(s => (s.ProductName is not null ? s.ProductName.ToLower().Contains(TextSearch.ToLower()) : false)).ToList();
+
+            Products = data;
+        }
+
+        if (page <= 0)
+        {
+            page = 1;
+        }
+
+        int maxRows = 10;
+        int? count = (page - 1) * maxRows;
+        var dataResult = data.OrderBy(x => x.ProductLinkId).Skip((int)count!).Take(maxRows).ToList();
+        double pageCount = (double)((decimal)data.Count() / Convert.ToDecimal(maxRows));
+
+        PageCount = (int)Math.Ceiling(pageCount);
+
+        Products = dataResult;
+
+        CurrentPageNumber = page;
+    }
+
+    private async Task CreateAsync()
+    {
+        if (createProduct!.ProductName is null) return;
+
+        await datacontext.Products.AddAsync(createProduct!);
+
+        await datacontext.SaveChangesAsync();
+
+        nag.Refresh(true);
+
+    }
+
+    private async Task EditModal(Product product)
+    {
+        ProductEdit = product;
+        dialogProductComponent!.LoadDefault();
+        await js.InvokeVoidAsync("myDialogFunction");
+    }
+
+    private async Task DeleteModal(Product product)
+    {
+        ProductEdit = product;
+        dialogProductComponent!.ShowDeleteModal();
+        await js.InvokeVoidAsync("myDialogFunction");
+    }
+
+    private async Task HandleEditEvent(Product product)
+    {
+        datacontext.Products.Update(product);
+        await datacontext.SaveChangesAsync();
+        dialogProductComponent!.LoadDefault();
+        ProductEdit = new();
+        nag.Refresh(true);
+    }
+
+    private async Task HandleDeleteEvent()
+    {
+        if (ProductEdit is null) return;
+
+        datacontext.Products.Remove(ProductEdit);
+        await datacontext.SaveChangesAsync();
+        dialogProductComponent!.LoadDefault();
+        ProductEdit = new();
+        nag.Refresh(true);
+    }
+}

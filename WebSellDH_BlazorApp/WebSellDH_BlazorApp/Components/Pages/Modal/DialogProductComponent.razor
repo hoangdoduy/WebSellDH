@@ -1,0 +1,150 @@
+﻿@inject DatabaseDbContext datacontext
+<div>
+    <dialog id="my-dialog" @onclose="OnClose" class="dialog">
+        @if (ShowEdit)
+        {
+            <EditForm Model="@ProductEdit" OnValidSubmit="@EditAsync">
+                <div class="dialog-header">
+                    <div>
+                        <h4>
+                            Edit Product @ProductEdit!.ProductName
+                        </h4>
+                    </div>
+                    <div class="close">
+                        <form method="dialog">
+                            <button class="btn btn-default waves-effect">
+                                <i class="material-icons  font-bold col-black">cancel</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="dialog-body">
+
+                    <DataAnnotationsValidator />
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputText type="text" class="form-control" placeholder="Name" @bind-Value="ProductEdit!.ProductName" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputText type="text" class="form-control" placeholder="Version" @bind-Value="ProductEdit!.ProductVersion" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputTextArea type="text" class="form-control" rows="10" placeholder="Content" @bind-Value="ProductEdit!.ProductContent" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <InputCheckbox type="checkbox" name="displayedit" id="displayedit" class="filled-in chk-col-pink" @bind-Value="ProductEdit.Display"></InputCheckbox>
+                        <label for="displayedit">Display</label>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputSelect @bind-Value="ProductEdit.CategoryId" class="form-control show-tick">
+                                @foreach (var item in GetCategories!)
+                                {
+                                    <option value="@item.CategoryId">@item.CategoryName</option>
+
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputSelect @bind-Value="ProductEdit.ProductLinkId" class="form-control show-tick">
+                                @foreach (var item in GetProductLink!)
+                                {
+                                    <option value="@item.ProductLinkId">@item.ProductLinkName</option>
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-footer">
+                    <button type="submit" class="btn btn-primary waves-effect">SAVE CHANGES</button>
+                </div>
+            </EditForm>
+        }
+
+        @if (ShowDelete)
+        {
+            <div class="dialog-header">
+                <div>
+                    <h4>
+                        Delete Product @ProductEdit!.ProductName
+                    </h4>
+                </div>
+            </div>
+            <div class="dialog-body">
+                Are you sure you wanna do this?
+            </div>
+            <div class="dialog-footer">
+                <form method="dialog">
+                    <button class="btn btn-danger waves-effect" @onclick="(() => ConfirmDelete(true))">Yes</button>
+                    <button class="btn btn-default waves-effect">No</button>
+                </form>
+            </div>
+        }
+    </dialog>
+</div>
+@code {
+    private bool ShowEdit { get; set; } = true;
+
+    private bool ShowDelete { get; set; } = false;
+
+    private List<Category>? GetCategories = new();
+
+    private List<ProductLink>? GetProductLink = new();
+
+    [Parameter]
+    public Product? ProductEdit { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<Product> HandleEditEvent { get; set; }
+
+    [Parameter]
+    public EventCallback HandleDeleteEvent { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        GetCategories = await datacontext.Categories.ToListAsync();
+        GetProductLink = await datacontext.ProductLinks.ToListAsync();
+        await base.OnInitializedAsync();
+    }
+
+    void OnClose(EventArgs e)
+    {
+        LoadDefault();
+        base.OnInitialized();
+    }
+
+    public void LoadDefault()
+    {
+        ProductEdit = new();
+        ShowEdit = true;
+        ShowDelete = false;
+    }
+
+    public void ShowDeleteModal()
+    {
+        ShowEdit = false;
+        ShowDelete = true;
+    }
+
+    async Task EditAsync()
+    {
+        await HandleEditEvent.InvokeAsync(ProductEdit);
+    }
+
+    async Task ConfirmDelete(bool response)
+    {
+        if (response)
+        {
+            await HandleDeleteEvent.InvokeAsync();
+            ShowDeleteModal();
+        }
+    }
+}

@@ -1,0 +1,137 @@
+﻿@inject DatabaseDbContext datacontext
+
+<div>
+    <dialog id="my-dialog" @onclose="OnClose" class="dialog">
+        @if (ShowEdit)
+        {
+            <EditForm Model="@PriceEdit" OnValidSubmit="@EditAsync">
+                <div class="dialog-header">
+                    <div>
+                        <h4>
+                            Edit Price @PriceEdit!.PriceName
+                        </h4>
+                    </div>
+                    <div class="close">
+                        <form method="dialog">
+                            <button class="btn btn-default waves-effect">
+                                <i class="material-icons  font-bold col-black">cancel</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="dialog-body">
+
+                    <DataAnnotationsValidator />
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputText type="text" class="form-control" placeholder="Name" @bind-Value="PriceEdit!.PriceName" />
+                        </div>
+                    </div>
+                    <label for="priceday">Days</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputNumber class="form-control" id="priceday" @bind-Value="PriceEdit!.PriceDay" />
+                        </div>
+                    </div>
+                    <label for="balance">Balance</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputNumber class="form-control" id="balance" @bind-Value="PriceEdit!.Balance" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputSelect @bind-Value="PriceEdit.ProductId" class="form-control show-tick">
+                                @foreach (var item in GetProducts!)
+                                {
+                                    <option value="@item.ProductId">@item.ProductName</option>
+
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-footer">
+                    <button type="submit" class="btn btn-primary waves-effect">SAVE CHANGES</button>
+                </div>
+            </EditForm>
+        }
+
+        @if (ShowDelete)
+        {
+            <div class="dialog-header">
+                <div>
+                    <h4>
+                        Delete Price @PriceEdit!.PriceName
+                    </h4>
+                </div>
+            </div>
+            <div class="dialog-body">
+                Are you sure you wanna do this?
+            </div>
+            <div class="dialog-footer">
+                <form method="dialog">
+                    <button class="btn btn-danger waves-effect" @onclick="(() => ConfirmDelete(true))">Yes</button>
+                    <button class="btn btn-default waves-effect">No</button>
+                </form>
+            </div>
+        }
+    </dialog>
+</div>
+
+
+@code {
+    private bool ShowEdit { get; set; } = true;
+
+    private bool ShowDelete { get; set; } = false;
+
+    private List<Product> GetProducts = new();
+
+    [Parameter]
+    public Price? PriceEdit { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<Price> HandleEditEvent { get; set; }
+
+    [Parameter]
+    public EventCallback HandleDeleteEvent { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        GetProducts = await datacontext.Products.ToListAsync();
+        await base.OnInitializedAsync();
+    }
+
+    void OnClose(EventArgs e)
+    {
+        LoadDefault();
+        base.OnInitialized();
+    }
+
+    public void LoadDefault()
+    {
+        PriceEdit = new();
+        ShowEdit = true;
+        ShowDelete = false;
+    }
+
+    public void ShowDeleteModal()
+    {
+        ShowEdit = false;
+        ShowDelete = true;
+    }
+
+    async Task EditAsync()
+    {
+        await HandleEditEvent.InvokeAsync(PriceEdit);
+    }
+
+    async Task ConfirmDelete(bool response)
+    {
+        if (response)
+        {
+            await HandleDeleteEvent.InvokeAsync();
+            ShowDeleteModal();
+        }
+    }
+}

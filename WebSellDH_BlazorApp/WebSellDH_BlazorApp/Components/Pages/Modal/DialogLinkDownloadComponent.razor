@@ -1,0 +1,108 @@
+﻿<div>
+    <dialog id="my-dialog" @onclose="OnClose" class="dialog">
+        @if (ShowEdit)
+        {
+            <EditForm Model="@ProductLinkEdit" OnValidSubmit="@EditAsync">
+                <div class="dialog-header">
+                    <div>
+                        <h4>
+                            Edit Product Link @ProductLinkEdit!.ProductLinkName
+                        </h4>
+                    </div>
+                    <div class="close">
+                        <form method="dialog">
+                            <button class="btn btn-default waves-effect">
+                                <i class="material-icons  font-bold col-black">cancel</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="dialog-body">
+
+                    <DataAnnotationsValidator />
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputText type="text" class="form-control" placeholder="Name" @bind-Value="ProductLinkEdit!.ProductLinkName" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputText type="text" class="form-control" placeholder="Url" @bind-Value="ProductLinkEdit!.Url" />
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-footer">
+                    <button type="submit" class="btn btn-primary waves-effect">SAVE CHANGES</button>
+                </div>
+            </EditForm>
+        }
+
+        @if (ShowDelete)
+        {
+            <div class="dialog-header">
+                <div>
+                    <h4>
+                        Delete Product Link @ProductLinkEdit!.ProductLinkName
+                    </h4>
+                </div>
+            </div>
+            <div class="dialog-body">
+                Are you sure you wanna do this?
+            </div>
+            <div class="dialog-footer">
+                <form method="dialog">
+                    <button class="btn btn-danger waves-effect" @onclick="(() => ConfirmDelete(true))">Yes</button>
+                    <button class="btn btn-default waves-effect">No</button>
+                </form>
+            </div>
+        }
+    </dialog>
+</div>
+
+@code {
+    private bool ShowEdit { get; set; } = true;
+
+    private bool ShowDelete { get; set; } = false;
+
+    [Parameter]
+    public ProductLink? ProductLinkEdit { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<ProductLink> HandleEditEvent { get; set; }
+
+    [Parameter]
+    public EventCallback HandleDeleteEvent { get; set; }
+
+    void OnClose(EventArgs e)
+    {
+        LoadDefault();
+        base.OnInitialized();
+    }
+
+    public void LoadDefault()
+    {
+        ProductLinkEdit = new();
+        ShowEdit = true;
+        ShowDelete = false;
+    }
+
+    public void ShowDeleteModal()
+    {
+        ShowEdit = false;
+        ShowDelete = true;
+    }
+
+    async Task EditAsync()
+    {
+        await HandleEditEvent.InvokeAsync(ProductLinkEdit);
+    }
+
+    async Task ConfirmDelete(bool response)
+    {
+        if (response)
+        {
+            await HandleDeleteEvent.InvokeAsync();
+            ShowDeleteModal();
+        }
+    }
+}

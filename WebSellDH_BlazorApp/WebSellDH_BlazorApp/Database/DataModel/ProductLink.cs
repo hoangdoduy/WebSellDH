@@ -9,6 +9,8 @@ namespace WebSellDH_BlazorApp.Database.DataModel
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProductLinkId { get; set; }
 
+        public string? ProductLinkName { get; set; }
+
         public string? Url { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace WebSellDH_BlazorApp.Database.DataModel
         public int PriceDay { get; set; }
 
         [Required]
-        [Column(TypeName = "decimal(18,8)")]
+        [Column(TypeName = "decimal(18,0)")]
         public decimal Balance { get; set; }
 
         [ForeignKey("Product")]

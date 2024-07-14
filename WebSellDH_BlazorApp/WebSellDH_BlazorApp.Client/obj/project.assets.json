@@ -1879,23 +1879,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\boton\\.nuget\\packages\\": {},
+    "C:\\Users\\HoangPC\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\WebSellDH_BlazorApp.Client.csproj",
+      "projectUniqueName": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\WebSellDH_BlazorApp.Client.csproj",
       "projectName": "WebSellDH_BlazorApp.Client",
-      "projectPath": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\WebSellDH_BlazorApp.Client.csproj",
-      "packagesPath": "C:\\Users\\boton\\.nuget\\packages\\",
-      "outputPath": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\obj\\",
+      "projectPath": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\WebSellDH_BlazorApp.Client.csproj",
+      "packagesPath": "C:\\Users\\HoangPC\\.nuget\\packages\\",
+      "outputPath": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.Client\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\boton\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HoangPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

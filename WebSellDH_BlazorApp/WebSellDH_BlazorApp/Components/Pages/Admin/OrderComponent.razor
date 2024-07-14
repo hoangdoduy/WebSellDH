@@ -1,0 +1,342 @@
+﻿@page "/order"
+@rendermode InteractiveServer
+@attribute [StreamRendering]
+@inject DatabaseDbContext datacontext
+@inject NavigationManager nag
+@inject IJSRuntime js
+
+@if(Orders is null)
+{
+    <Loading/>
+}
+else
+{
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="body">
+                    <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#defaultModal">Add Order</button>
+                    <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="defaultModalLabel">ADD ORDER</h4>
+                                </div>
+                                <EditForm Model="@createOrder" OnValidSubmit="@CreateAsync">
+                                    <DataAnnotationsValidator />
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputText type="text" class="form-control" placeholder="Key" @bind-Value="createOrder!.KeyAccess" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <InputCheckbox class="filled-in chk-col-pink" id="displayorder" placeholder="Display" @bind-Value="createOrder!.Display" />
+                                            <label for="displayorder">Display</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputSelect @bind-Value="createOrder.UserId" class="form-control">
+                                                    <option selected>Select User</option>
+                                                    @foreach (var item in GetUserAccounts!)
+                                                    {
+                                                        string balance = String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.Balance);
+                                                        <option value="@item.UserId">@item.UserName - @balance</option>
+
+                                                    }
+                                                </InputSelect>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputSelect TValue="int" Value="createOrder.ProductId" ValueExpression="@(() => createOrder.ProductId)" ValueChanged="@((int value) => OnChangeProduct(value))" class="form-control">
+                                                    <option value="0">Select Product</option>
+                                                    @foreach (var item in GetProducts!)
+                                                    {
+                                                        <option value="@item.ProductId">@item.ProductName</option>
+                                                    }
+                                                </InputSelect>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputSelect @bind-Value="createOrder.PriceId" class="form-control">
+                                                    <option value="0">Select Price</option>
+                                                    @if (GetPrices != null)
+                                                    {
+                                                        @foreach (var item in GetPrices!)
+                                                        {
+                                                            int id = item.PriceId;
+                                                            string name = item.PriceName!;
+                                                            string balance = String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.Balance);
+                                                            <option value="@id">@name - @balance</option>
+                                                        }
+                                                    }
+                                                </InputSelect>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary waves-effect">SAVE CHANGES</button>
+                                        <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
+                                    </div>
+                                </EditForm>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        ORDER TABLE
+                    </h2>
+                </div>
+                <div class="body">
+                    <form>
+                        <div class="row clearfix">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <InputText type="text" class="form-control" placeholder="Search" @bind-Value="TextSearch" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                <button type="button" @onclick="(() => OnSearch(0))" class="btn btn-primary btn-lg waves-effect">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>UserName</th>
+                                    <th>Key</th>
+                                    <th>DateEnd</th>
+                                    <th>Display</th>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Create Date</th>
+                                    <th>Update Date</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var acc in Orders)
+                                    {
+                                        <tr>
+                                            <td>@acc.UserAccount!.UserName</td>
+                                            <td>@acc.KeyAccess</td>
+                                            <td>@acc.DateEnd</td>
+                                            <td>
+                                                @{
+                                                    if (acc.Display)
+                                                    {
+                                                        <span class="label bg-red">Block</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="label bg-green">Active</span>
+                                                    }
+                                                }
+                                            </td>
+                                            <td>@acc.Product!.ProductName</td>
+                                            <td><span class="label bg-teal m-r-10">@acc.Price!.PriceName - @String.Format(new CultureInfo("vi-VN"), "{0:C0}", @acc.Price!.Balance)</span></td>
+                                            <td>@acc.CreateDate</td>
+                                            <td>@acc.UpdateDate</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li>
+                                                            <a type="button" @onclick="(() => EditModal(acc))" class="waves-effect">
+                                                                <i class="material-icons">mode_edit</i> Edit
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a type="button" @onclick="(() => DeleteModal(acc))" class="waves-effect">
+                                                                <i class="material-icons">delete</i> Delete
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <nav>
+                                <ul class="pagination">
+                                    @{
+                                        for (int i = 1; i <= PageCount; i++)
+                                        {
+                                            int captureIndex = i;
+                                            string subClass = CurrentPageNumber == captureIndex ? "active" : string.Empty;
+                                            string subBtnClass = CurrentPageNumber == captureIndex ? "btn btn-primary" : "btn btn-default";
+                                            <li class="@subClass"><button class="@subBtnClass waves-effect" @onclick="(async () => await OnSearch(captureIndex))">@captureIndex</button></li>
+                                        }
+                                    }
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<DialogOrderComponent @rendermode="InteractiveServer" @ref="dialogOrderComponent" OrderEdit="OrderEdit" GetPrices="GetPricesEdit" HandleDeleteEvent="HandleDeleteEvent" HandleEditEvent="HandleEditEvent"></DialogOrderComponent>
+
+
+@code {
+    DialogOrderComponent? dialogOrderComponent;
+
+    Order OrderEdit = new();
+    List<Price> GetPricesEdit = new();
+
+    string TextSearch { get; set; } = string.Empty;
+
+    int PageCount { get; set; }
+    int CurrentPageNumber { get; set; }
+
+    private List<UserAccount> GetUserAccounts = new();
+    private List<Product> GetProducts = new();
+    public List<Price>? GetPrices { get; set; }
+
+    private List<Order>? Orders;
+    private Order? createOrder;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(500);
+        GetUserAccounts = await datacontext.UserAccounts.ToListAsync();
+        GetProducts = await datacontext.Products.ToListAsync();
+        await OnSearch(0);
+        createOrder ??= new Order();
+    }
+
+    private async Task OnSearch(int page)
+    {
+        var data = await datacontext.Orders.Include(x => x.Price).ToListAsync();
+
+        if (!string.IsNullOrEmpty(TextSearch))
+        {
+            data = data.Where(s => (s.UserAccount!.UserName is not null ? s.UserAccount.UserName.ToLower().Contains(TextSearch.ToLower()) : false)).ToList();
+
+            Orders = data;
+        }
+
+        if (page <= 0)
+        {
+            page = 1;
+        }
+
+        int maxRows = 10;
+        int? count = (page - 1) * maxRows;
+        var dataResult = data.OrderBy(x => x.OrderId).Skip((int)count!).Take(maxRows).ToList();
+        double pageCount = (double)((decimal)data.Count() / Convert.ToDecimal(maxRows));
+
+        PageCount = (int)Math.Ceiling(pageCount);
+
+        Orders = dataResult;
+
+        CurrentPageNumber = page;
+    }
+
+    private async Task CreateAsync()
+    {
+        if (createOrder is null) return;
+        if (createOrder!.UserId == 0) return;
+        if (createOrder!.ProductId == 0) return;
+        if (createOrder!.PriceId == 0) return;
+
+        var price = await datacontext.Prices.Where(x => x.PriceId == createOrder!.PriceId).FirstOrDefaultAsync();
+
+        int day = price!.PriceDay;
+
+        DateTime utcTime = DateTime.UtcNow;
+        TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+        DateTime vietnamTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, vietnamTimeZone);
+
+        DateTime dateTime = vietnamTime.AddDays(day);
+
+        createOrder!.DateEnd = dateTime;
+
+        await datacontext.Orders.AddAsync(createOrder!);
+
+        await datacontext.SaveChangesAsync();
+
+        nag.Refresh(true);
+
+    }
+
+    private async Task OnChangeProduct(int value)
+    {
+        createOrder!.ProductId = value;
+        GetPrices = await datacontext.Prices.Where(x => x.ProductId == value).ToListAsync();
+    }
+
+    private async Task EditModal(Order order)
+    {
+        OrderEdit = order;
+        GetPricesEdit = await datacontext.Prices.Where(x => x.ProductId == OrderEdit!.ProductId).ToListAsync();
+        dialogOrderComponent!.ShowEditModal();
+        //await dialogOrderComponent!.LoadModal();
+        await js.InvokeVoidAsync("myDialogFunction");
+    }
+
+    private async Task DeleteModal(Order order)
+    {
+        OrderEdit = order;
+        GetPricesEdit = await datacontext.Prices.Where(x => x.ProductId == OrderEdit!.ProductId).ToListAsync();
+        dialogOrderComponent!.ShowDeleteModal();
+        await js.InvokeVoidAsync("myDialogFunction");
+    }
+
+    private async Task HandleEditEvent(Order order)
+    {
+        var price = await datacontext.Prices.Where(x => x.PriceId == order!.PriceId).FirstOrDefaultAsync();
+
+        int day = price!.PriceDay;
+
+        DateTime utcTime = DateTime.UtcNow;
+        TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+        DateTime vietnamTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, vietnamTimeZone);
+
+        DateTime dateTime = vietnamTime.AddDays(day);
+
+        order!.DateEnd = dateTime;
+
+        datacontext.Orders.Update(order);
+        await datacontext.SaveChangesAsync();
+        dialogOrderComponent!.LoadDefault();
+        OrderEdit = new();
+        nag.Refresh(true);
+    }
+
+    private async Task HandleDeleteEvent()
+    {
+        if (OrderEdit is null) return;
+
+        datacontext.Orders.Remove(OrderEdit);
+        await datacontext.SaveChangesAsync();
+        dialogOrderComponent!.LoadDefault();
+        OrderEdit = new();
+        nag.Refresh(true);
+    }
+}

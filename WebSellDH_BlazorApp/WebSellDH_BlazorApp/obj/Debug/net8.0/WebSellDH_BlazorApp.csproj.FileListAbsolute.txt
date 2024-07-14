@@ -182,7 +182,6 @@ E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8.0\WebSellDH_BlazorApp.pdb
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8.0\Azure.Core.dll
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8.0\Azure.Identity.dll
-E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8.0\Blazored.Modal.dll
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8.0\Humanizer.dll
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
@@ -233,7 +232,6 @@ E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8.0\System.Runtime.Caching.dll
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8.0\System.Security.Permissions.dll
-E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8.0\System.Text.Json.dll
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8.0\System.Windows.Extensions.dll
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
 E:\Project 2017\WebSellDH\WebSellDH_BlazorApp\WebSellDH_BlazorApp\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll

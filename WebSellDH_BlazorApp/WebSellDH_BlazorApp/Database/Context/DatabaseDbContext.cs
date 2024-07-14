@@ -27,7 +27,7 @@ namespace WebSellDH_BlazorApp.Database.Context
                 e.HasIndex(x => x.UserName).IsUnique();
                 e.Property(x => x.Role).HasDefaultValue(0);
                 e.Property(x => x.Display).HasDefaultValue(false);
-                e.Property(x => x.Balance).HasDefaultValue(0M).HasPrecision(18, 8);
+                e.Property(x => x.Balance).HasDefaultValue(0M).HasPrecision(18, 0);
                 e.Property(x => x.CreateDate).HasDefaultValueSql("getutcdate()");
                 e.Property(x => x.UpdateDate).HasDefaultValueSql("getutcdate()");
             });
@@ -54,7 +54,7 @@ namespace WebSellDH_BlazorApp.Database.Context
 
             modelBuilder.Entity<Price>(e =>
             {
-                e.Property(x => x.Balance).HasDefaultValue(0M).HasPrecision(18, 8);
+                e.Property(x => x.Balance).HasDefaultValue(0M).HasPrecision(18, 0);
                 e.Property(x => x.CreateDate).HasDefaultValueSql("getutcdate()");
                 e.Property(x => x.UpdateDate).HasDefaultValueSql("getutcdate()");
             });

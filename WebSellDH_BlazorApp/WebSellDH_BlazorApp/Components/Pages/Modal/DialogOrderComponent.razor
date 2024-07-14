@@ -1,0 +1,175 @@
+﻿@inject DatabaseDbContext datacontext
+
+<div>
+    <dialog id="my-dialog" @onclose="OnClose" class="dialog">
+        @if (ShowEdit)
+        {
+            <EditForm Model="@OrderEdit" OnValidSubmit="@EditAsync">
+                <div class="dialog-header">
+                    <div>
+                        <h4>Edit Order User @OrderEdit!.UserAccount!.UserName - @OrderEdit!.Product!.ProductName</h4>
+                    </div>
+                    <div class="close">
+                        <form method="dialog">
+                            <button class="btn btn-default waves-effect">
+                                <i class="material-icons  font-bold col-black">cancel</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="dialog-body">
+
+                    <DataAnnotationsValidator />
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputText type="text" class="form-control" placeholder="Key" @bind-Value="OrderEdit!.KeyAccess" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <InputCheckbox class="filled-in chk-col-pink" id="displayorderedit" placeholder="Display" @bind-Value="OrderEdit!.Display" />
+                        <label for="displayorderedit">Display</label>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputSelect @bind-Value="OrderEdit.UserId" class="form-control show-tick">
+                                @foreach (var item in GetUserAccounts!)
+                                {
+                                    <option value="@item.UserId">@item.UserName</option>
+
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputSelect TValue="int" Value="OrderEdit.ProductId" ValueExpression="@(() => OrderEdit.ProductId)" ValueChanged="@((int value) => OnChangeProduct(value))" class="form-control">
+                                @foreach (var item in GetProducts!)
+                                {
+                                    <option value="@item.ProductId">@item.ProductName</option>
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-line">
+                            <InputSelect @bind-Value="OrderEdit.PriceId" class="form-control show-tick">
+                                @if (GetPrices != null)
+                                {
+                                    @foreach (var item in GetPrices!)
+                                    {
+                                        int id = item.PriceId;
+                                        string name = item.PriceName!;
+                                        string balance = String.Format(new CultureInfo("vi-VN"), "{0:C0}", item.Balance);
+                                        <option value="@id">@name - @balance</option>
+                                    }
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="dialog-footer">
+                    <button type="submit" class="btn btn-primary waves-effect">SAVE CHANGES</button>
+                </div>
+            </EditForm>
+        }
+
+        @if (ShowDelete)
+        {
+            <div class="dialog-header">
+                <div>
+                    <h4>Delete Order</h4>
+                </div>
+            </div>
+            <div class="dialog-body">
+                Are you sure you wanna do this?
+            </div>
+            <div class="dialog-footer">
+                <form method="dialog">
+                    <button class="btn btn-danger waves-effect" @onclick="(() => ConfirmDelete(true))">Yes</button>
+                    <button class="btn btn-default waves-effect">No</button>
+                </form>
+            </div>
+        }
+    </dialog>
+</div>
+
+@code {
+    private bool ShowEdit { get; set; } = false;
+
+    private bool ShowDelete { get; set; } = false;
+
+    private List<UserAccount>? GetUserAccounts = new();
+
+    private List<Product>?  GetProducts = new();
+
+    [Parameter]
+    public List<Price>? GetPrices { get; set; } = new();
+
+    [Parameter]
+    public Order? OrderEdit { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<Order> HandleEditEvent { get; set; }
+
+    [Parameter]
+    public EventCallback HandleDeleteEvent { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        GetUserAccounts = await datacontext.UserAccounts.ToListAsync();
+        GetProducts = await datacontext.Products.ToListAsync();
+        if(OrderEdit!.PriceId != 0)
+        {
+            GetPrices = await datacontext.Prices.Where(x => x.ProductId == OrderEdit!.ProductId).ToListAsync();
+        }
+        await base.OnInitializedAsync();
+    }
+
+    private async Task OnChangeProduct(int value)
+    {
+        OrderEdit!.ProductId = value;
+        GetPrices = await datacontext.Prices.Where(x => x.ProductId == value).ToListAsync();
+    }
+
+    void OnClose(EventArgs e)
+    {
+        LoadDefault();
+        base.OnInitialized();
+    }
+
+    public void LoadDefault()
+    {
+        OrderEdit = new();
+        ShowEdit = false;
+        ShowDelete = false;
+    }
+
+    public void ShowEditModal()
+    {
+        ShowEdit = true;
+        ShowDelete = false;
+    }
+
+    public void ShowDeleteModal()
+    {
+        ShowEdit = false;
+        ShowDelete = true;
+    }
+
+    async Task EditAsync()
+    {
+        await HandleEditEvent.InvokeAsync(OrderEdit);
+    }
+
+    async Task ConfirmDelete(bool response)
+    {
+        if (response)
+        {
+            await HandleDeleteEvent.InvokeAsync();
+            ShowDeleteModal();
+        }
+    }
+}

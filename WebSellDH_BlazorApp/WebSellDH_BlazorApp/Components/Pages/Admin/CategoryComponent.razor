@@ -1,0 +1,237 @@
+﻿@page "/categories"
+@rendermode InteractiveServer
+@attribute [StreamRendering]
+@inject DatabaseDbContext datacontext
+@inject NavigationManager nag
+@inject IJSRuntime js
+
+@if (Categories is null)
+{
+    <Loading />
+}
+else
+{
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="body">
+                    <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#defaultModal">Add Categories</button>
+                    <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="defaultModalLabel">ADD CATEGORIES</h4>
+                                </div>
+                                <EditForm Model="@CreateCategory" OnValidSubmit="@CreateAsync">
+                                    <DataAnnotationsValidator />
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputText type="text" class="form-control" placeholder="Name" @bind-Value="CreateCategory!.CategoryName" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <InputTextArea type="text" rows="10" class="form-control" placeholder="Content" @bind-Value="CreateCategory.CategoryContent"></InputTextArea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary waves-effect">SAVE CHANGES</button>
+                                        <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
+                                    </div>
+                                </EditForm>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        CATEGORIES TABLE
+                    </h2>
+                </div>
+                <div class="body">
+                    <form>
+                        <div class="row clearfix">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <InputText type="text" class="form-control" placeholder="Search" @bind-Value="TextSearch" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                <button type="button" @onclick="(() => OnSearch(0))" class="btn btn-primary btn-lg waves-effect">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Content</th>
+                                    <th>Create Date</th>
+                                    <th>Update Date</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var acc in Categories)
+                                    {
+                                        <tr>
+                                            <td>@acc.CategoryName</td>
+                                            <td>@acc.CategoryContent</td>
+                                            <td>@acc.CreateDate</td>
+                                            <td>@acc.UpdateDate</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li>
+                                                            <a type="button" @onclick="(() => EditModal(acc))" class="waves-effect">
+                                                                <i class="material-icons">mode_edit</i> Edit
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a type="button" @onclick="(() => DeleteModal(acc))" class="waves-effect">
+                                                                <i class="material-icons">delete</i> Delete
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <nav>
+                                <ul class="pagination">
+                                    @{
+                                        for (int i = 1; i <= PageCount; i++)
+                                        {
+                                            int captureIndex = i;
+                                            string subClass = CurrentPageNumber == captureIndex ? "active" : string.Empty;
+                                            string subBtnClass = CurrentPageNumber == captureIndex ? "btn btn-primary" : "btn btn-default";
+                                            <li class="@subClass"><button class="@subBtnClass waves-effect" @onclick="(async () => await OnSearch(captureIndex))">@captureIndex</button></li>
+                                        }
+                                    }
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<DialogCategoriesComponent @rendermode="InteractiveServer" @ref="dialogCategoriesComponent" CategoryEdit="CategoryEdit" HandleDeleteEvent="HandleDeleteEvent" HandleEditEvent="HandleEditEvent"></DialogCategoriesComponent>
+
+@code {
+    DialogCategoriesComponent? dialogCategoriesComponent;
+
+    Category? CategoryEdit = new();
+
+    string TextSearch { get; set; } = string.Empty;
+
+    int PageCount { get; set; }
+    int CurrentPageNumber { get; set; }
+
+    private List<Category>? Categories;
+
+    private Category? CreateCategory;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(500);
+        await OnSearch(0);
+        CreateCategory ??= new Category();
+    }
+
+    private async Task OnSearch(int page)
+    {
+        var data = await datacontext.Categories.ToListAsync();
+
+        if (!string.IsNullOrEmpty(TextSearch))
+        {
+            data = data.Where(s => (s.CategoryName is not null ? s.CategoryName.ToLower().Contains(TextSearch.ToLower()) : false)).ToList();
+
+            Categories = data;
+        }
+
+        if (page <= 0)
+        {
+            page = 1;
+        }
+
+        int maxRows = 10;
+        int? count = (page - 1) * maxRows;
+        var dataResult = data.OrderBy(x => x.CategoryId).Skip((int)count!).Take(maxRows).ToList();
+        double pageCount = (double)((decimal)data.Count() / Convert.ToDecimal(maxRows));
+
+        PageCount = (int)Math.Ceiling(pageCount);
+
+        Categories = dataResult;
+
+        CurrentPageNumber = page;
+    }
+
+    private async Task CreateAsync()
+    {
+        if(CreateCategory!.CategoryName is null) return;
+
+        await datacontext.Categories.AddAsync(CreateCategory!);
+
+        await datacontext.SaveChangesAsync();
+
+        nag.NavigateTo("/categories", true);
+
+    }
+
+    private async Task EditModal(Category category)
+    {
+        CategoryEdit = category;
+        dialogCategoriesComponent!.LoadDefault();
+        await js.InvokeVoidAsync("myDialogFunction");
+    }
+
+    private async Task DeleteModal(Category category)
+    {
+        CategoryEdit = category;
+        dialogCategoriesComponent!.ShowDeleteModal();
+        await js.InvokeVoidAsync("myDialogFunction");
+    }
+
+    private async Task HandleEditEvent(Category category)
+    {
+        datacontext.Categories.Update(category);
+        await datacontext.SaveChangesAsync();
+        dialogCategoriesComponent!.LoadDefault();
+        CategoryEdit = new();
+        nag.Refresh(true);
+    }
+
+    private async Task HandleDeleteEvent()
+    {
+        if (CategoryEdit is null) return;
+
+        datacontext.Categories.Remove(CategoryEdit);
+        await datacontext.SaveChangesAsync();
+        dialogCategoriesComponent!.LoadDefault();
+        CategoryEdit = new();
+        nag.Refresh(true);
+    }
+}

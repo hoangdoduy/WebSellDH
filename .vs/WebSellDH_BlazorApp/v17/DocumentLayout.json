@@ -1,22 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\",
+  "WorkspaceRootPath": "E:\\Project 2017\\WebSellDH\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|d:\\project 2017\\dh softwares sell\\webselldh_blazorapp\\webselldh_blazorapp\\webselldh_blazorapp\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|solutionrelative:webselldh_blazorapp\\webselldh_blazorapp\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|e:\\project 2017\\webselldh\\webselldh_blazorapp\\webselldh_blazorapp\\components\\pages\\admin\\ordercomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|solutionrelative:webselldh_blazorapp\\webselldh_blazorapp\\components\\pages\\admin\\ordercomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|d:\\project 2017\\dh softwares sell\\webselldh_blazorapp\\webselldh_blazorapp\\webselldh_blazorapp\\components\\pages\\admin\\users.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|solutionrelative:webselldh_blazorapp\\webselldh_blazorapp\\components\\pages\\admin\\users.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|e:\\project 2017\\webselldh\\webselldh_blazorapp\\webselldh_blazorapp\\components\\pages\\modal\\dialogordercomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|solutionrelative:webselldh_blazorapp\\webselldh_blazorapp\\components\\pages\\modal\\dialogordercomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|d:\\project 2017\\dh softwares sell\\webselldh_blazorapp\\webselldh_blazorapp\\webselldh_blazorapp\\components\\pages\\modal\\dialogcomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|solutionrelative:webselldh_blazorapp\\webselldh_blazorapp\\components\\pages\\modal\\dialogcomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|e:\\project 2017\\webselldh\\webselldh_blazorapp\\webselldh_blazorapp\\database\\datamodel\\useraccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|solutionrelative:webselldh_blazorapp\\webselldh_blazorapp\\database\\datamodel\\useraccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|d:\\project 2017\\dh softwares sell\\webselldh_blazorapp\\webselldh_blazorapp\\webselldh_blazorapp\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|solutionrelative:webselldh_blazorapp\\webselldh_blazorapp\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|e:\\project 2017\\webselldh\\webselldh_blazorapp\\webselldh_blazorapp\\database\\datamodel\\price.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|solutionrelative:webselldh_blazorapp\\webselldh_blazorapp\\database\\datamodel\\price.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|e:\\project 2017\\webselldh\\webselldh_blazorapp\\webselldh_blazorapp\\database\\datamodel\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9A31872-8266-4C9F-A0FB-84F1676618BE}|WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp.csproj|solutionrelative:webselldh_blazorapp\\webselldh_blazorapp\\database\\datamodel\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,54 +34,67 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Users.razor",
-              "DocumentMoniker": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Admin\\Users.razor",
-              "RelativeDocumentMoniker": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Admin\\Users.razor",
-              "ToolTip": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Admin\\Users.razor",
-              "RelativeToolTip": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Admin\\Users.razor",
-              "ViewState": "AQIAAL0AAAAAAAAAAAAAAMwAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-13T09:04:53.17Z",
+              "DocumentIndex": 2,
+              "Title": "UserAccount.cs",
+              "DocumentMoniker": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Database\\DataModel\\UserAccount.cs",
+              "RelativeDocumentMoniker": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Database\\DataModel\\UserAccount.cs",
+              "ToolTip": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Database\\DataModel\\UserAccount.cs",
+              "RelativeToolTip": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Database\\DataModel\\UserAccount.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAIwCMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-14T10:55:44.563Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "NavMenu.razor",
-              "DocumentMoniker": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Layout\\NavMenu.razor",
-              "RelativeDocumentMoniker": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Layout\\NavMenu.razor",
-              "ToolTip": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Layout\\NavMenu.razor",
-              "RelativeToolTip": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Layout\\NavMenu.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-13T07:45:48.395Z",
+              "Title": "Price.cs",
+              "DocumentMoniker": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Database\\DataModel\\Price.cs",
+              "RelativeDocumentMoniker": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Database\\DataModel\\Price.cs",
+              "ToolTip": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Database\\DataModel\\Price.cs",
+              "RelativeToolTip": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Database\\DataModel\\Price.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-14T10:51:31.173Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DialogComponent.razor",
-              "DocumentMoniker": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Modal\\DialogComponent.razor",
-              "RelativeDocumentMoniker": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Modal\\DialogComponent.razor",
-              "ToolTip": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Modal\\DialogComponent.razor",
-              "RelativeToolTip": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Modal\\DialogComponent.razor",
-              "ViewState": "AQIAAIQAAAAAAAAAAAAAAIgAAAA7AAAA",
+              "DocumentIndex": 1,
+              "Title": "DialogOrderComponent.razor",
+              "DocumentMoniker": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Modal\\DialogOrderComponent.razor",
+              "RelativeDocumentMoniker": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Modal\\DialogOrderComponent.razor",
+              "ToolTip": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Modal\\DialogOrderComponent.razor",
+              "RelativeToolTip": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Modal\\DialogOrderComponent.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGkAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-13T02:50:17.184Z",
+              "WhenOpened": "2024-07-14T10:35:43.028Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "App.razor",
-              "DocumentMoniker": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\App.razor",
-              "RelativeDocumentMoniker": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\App.razor",
-              "ToolTip": "D:\\Project 2017\\DH Softwares Sell\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\App.razor",
-              "RelativeToolTip": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\App.razor",
-              "ViewState": "AQIAADAAAAAAAAAAAADwv0QAAAAUAAAA",
+              "Title": "OrderComponent.razor",
+              "DocumentMoniker": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Admin\\OrderComponent.razor",
+              "RelativeDocumentMoniker": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Admin\\OrderComponent.razor",
+              "ToolTip": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Admin\\OrderComponent.razor",
+              "RelativeToolTip": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Components\\Pages\\Admin\\OrderComponent.razor",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAMBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-12T15:27:46.823Z",
+              "WhenOpened": "2024-07-14T03:10:00.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Order.cs",
+              "DocumentMoniker": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Database\\DataModel\\Order.cs",
+              "RelativeDocumentMoniker": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Database\\DataModel\\Order.cs",
+              "ToolTip": "E:\\Project 2017\\WebSellDH\\WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Database\\DataModel\\Order.cs",
+              "RelativeToolTip": "WebSellDH_BlazorApp\\WebSellDH_BlazorApp\\Database\\DataModel\\Order.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-14T03:08:41.416Z",
               "EditorCaption": ""
             }
           ]

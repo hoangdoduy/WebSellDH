@@ -38,12 +38,12 @@ namespace WebSellDH_BlazorApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CreateDate")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getutcdate()");
 
                     b.Property<DateTime?>("UpdateDate")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getutcdate()");
 
@@ -61,7 +61,7 @@ namespace WebSellDH_BlazorApp.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
 
                     b.Property<DateTime?>("CreateDate")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getutcdate()");
 
@@ -83,7 +83,7 @@ namespace WebSellDH_BlazorApp.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdateDate")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getutcdate()");
 
@@ -111,12 +111,12 @@ namespace WebSellDH_BlazorApp.Migrations
 
                     b.Property<decimal>("Balance")
                         .ValueGeneratedOnAdd()
-                        .HasPrecision(18, 8)
-                        .HasColumnType("decimal(18,8)")
+                        .HasPrecision(18)
+                        .HasColumnType("decimal(18,0)")
                         .HasDefaultValue(0m);
 
                     b.Property<DateTime?>("CreateDate")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getutcdate()");
 
@@ -131,7 +131,7 @@ namespace WebSellDH_BlazorApp.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdateDate")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getutcdate()");
 
@@ -154,7 +154,7 @@ namespace WebSellDH_BlazorApp.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("CreateDate")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getutcdate()");
 
@@ -179,7 +179,7 @@ namespace WebSellDH_BlazorApp.Migrations
                         .HasDefaultValue("1.0.0");
 
                     b.Property<DateTime?>("UpdateDate")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getutcdate()");
 
@@ -201,12 +201,15 @@ namespace WebSellDH_BlazorApp.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductLinkId"));
 
                     b.Property<DateTime?>("CreateDate")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getutcdate()");
 
+                    b.Property<string>("ProductLinkName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("UpdateDate")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getutcdate()");
 
@@ -228,12 +231,12 @@ namespace WebSellDH_BlazorApp.Migrations
 
                     b.Property<decimal?>("Balance")
                         .ValueGeneratedOnAdd()
-                        .HasPrecision(18, 8)
-                        .HasColumnType("decimal(18,8)")
+                        .HasPrecision(18)
+                        .HasColumnType("decimal(18,0)")
                         .HasDefaultValue(0m);
 
                     b.Property<DateTime?>("CreateDate")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getutcdate()");
 
@@ -261,7 +264,7 @@ namespace WebSellDH_BlazorApp.Migrations
                         .HasDefaultValue(0);
 
                     b.Property<DateTime?>("UpdateDate")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getutcdate()");
 
